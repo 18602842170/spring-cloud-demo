@@ -1,0 +1,20 @@
+server:
+  port: 9040  # 你的端口
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://git.coding.net/lbr132468/config-server.git
+          search-paths: respo
+          default-label: master
+          username: 18602842170
+          password: aaa111+++
+  application:
+    name: config-server # 客户端的名字
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9001/eureka/  # 服务中心地址

@@ -1,0 +1,17 @@
+server:
+  port: 9030  # 你的端口
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9001/eureka/  # 服务中心地址
+spring:
+  application:
+    name: zuul # 客户端的名字
+zuul:
+  routes:
+    api-a:
+      path: /api-a/**
+      serviceId: ribbon
+    api-b:
+      path: /api-b/**
+      serviceId: feign

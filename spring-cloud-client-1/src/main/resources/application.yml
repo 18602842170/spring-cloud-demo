@@ -1,0 +1,9 @@
+#spring:
+#  application:
+#    name: client1 # 客户端的名字
+#server:
+#  port: 9010  # 你的端口
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:9001/eureka/  # 服务中心地址

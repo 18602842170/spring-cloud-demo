@@ -1,0 +1,12 @@
+server:
+  port: 9001 # 你的端口
+  
+eureka:
+  instance:
+    hostname: localhost # 你的地址
+  client:
+    register-with-eureka: false # 表示是否注册自身到eureka服务器，因为当前这个应用就是eureka服务器，没必要注册自身，所以这里是false
+    fetch-registry: false # fetchRegistry表示是否从eureka服务器获取注册信息
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      # defaultZone就比较重要了，是设置eureka服务器所在的地址，查询服务和注册服务都需要依赖这个地址。

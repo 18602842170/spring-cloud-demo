@@ -1,0 +1,12 @@
+server:
+  port: 9021  # 你的端口
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9001/eureka/  # 服务中心地址
+spring:
+  application:
+    name: feign # 客户端的名字
+feign:
+  hystrix:
+    enabled: true
