@@ -11,4 +11,7 @@ spring cloud 的模板项目，作为集群其中包含了7个spring boot 项目
 - spring-cloud-zuul 为两个负载均衡节点的代理，就可以只向外部暴露一个地址。
 - spring-cloud-config-server 为集群的配置文件中心。
   - 当项目多时，只需要修改spring-cloud-config-server中的git仓库中的配置文件即可
+  
+# 最新集成了rocketMQ的测试代码
 
+# 最新集成了redis的测试代码
