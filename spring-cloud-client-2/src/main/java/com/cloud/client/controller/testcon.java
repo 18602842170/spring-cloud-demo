@@ -1,7 +1,6 @@
 package com.cloud.client.controller;
 
 import java.io.UnsupportedEncodingException;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -17,15 +16,12 @@ import org.apache.rocketmq.client.producer.TransactionMQProducer;
 import org.apache.rocketmq.common.message.Message;
 import org.apache.rocketmq.remoting.common.RemotingHelper;
 import org.apache.rocketmq.remoting.exception.RemotingException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cloud.client.Entity.User;
 import com.cloud.client.common.SentryUtil;
 import com.cloud.client.imp.TransactionListenerImpl;
-import com.cloud.client.service.RedisService;
 
 @RestController // 配置为controller
 @RequestMapping(value = "/test")
@@ -33,33 +29,6 @@ public class testcon {
     
     @Value("${server.port}") // 读取配置文件的端口
     String port;
-    
-    @Autowired
-    RedisService<User, String> redisService;
-    
-    /**
-     * 
-     * @return
-     */
-    @RequestMapping(value = "/redis")
-    public Object testRides() {
-        User user;
-        
-        String key = "user";
-        
-        // 缓存存在
-        user = redisService.getValue(key);
-        if (user == null) {
-            user = new User();
-            user.name = "测试";
-            user.age = 188;
-            user.createTime = new Date();
-            // 插入缓存
-            redisService.setValue(key, user, 60);
-        }
-        
-        return user;
-    }
     
     /**
      * 设置一个方法

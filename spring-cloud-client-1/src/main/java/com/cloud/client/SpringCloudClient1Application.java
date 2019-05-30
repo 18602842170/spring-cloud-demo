@@ -12,11 +12,13 @@ import org.apache.rocketmq.common.message.MessageExt;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @EnableEurekaClient // 配置客户端
 @RestController // 配置为controller
+@EnableAsync //异步任务注解
 public class SpringCloudClient1Application {
     
     public static void main(String[] args) throws MQClientException {
